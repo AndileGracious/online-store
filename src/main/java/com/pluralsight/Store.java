@@ -101,11 +101,20 @@ public class Store {
         //       prompt for an id, find that product, add to cart
 
         for (Product product : inventory) {
-            System.out.println(product.getSKU() + " "+ product.getPrice() + " " +  product.getDepartment());
+            System.out.println(product.getSKU() + " " + product.getPrice() + " " + product.getProductName());
+        }
+            System.out.println("Please enter the id for the product you are looking for: ");
+            String id = scanner.nextLine();
+
+
+        for (Product product : inventory) {
+            if (product.getSKU().equals(id)) {
+                cart.add(product);
+            }
 
         }
-    }
 
+    }
     /**
      * Shows the contents of the cart, calculates the total,
      * and offers the option to check out.
