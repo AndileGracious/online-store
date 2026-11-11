@@ -54,17 +54,11 @@ public class Store {
         scanner.close();
     }
 
-    /**
-     * Reads product data from a file and populates the inventory list.
-     * File format (pipe-delimited), the first line is a header row:
-     * SKU|Product Name|Price|Department
-     * <p>
-     * Example line:
-     * AV1051|JBL Bluetooth Speaker|89.95|Audio Video
+    /** load products.csv into inventory list
+     * used while loop to read until end of file
+     * parse price to double to turn the text into real number
      */
     public static void loadInventory(String fileName, ArrayList<Product> inventory) {
-        // TODO: skip the header line, then read each line, split on "|",
-        //       create a Product object, and add it to the inventory list
 
         try {
             FileReader fileReader = new FileReader(fileName);
@@ -93,12 +87,13 @@ public class Store {
     /**
      * Displays all products and lets the user add one to the cart.
      * Typing X returns to the main menu.
+     * use for each loop to show each product id, name, price
+     * use scanner to prompt user for id
+     * use for each loop to find product with matching id
      */
     public static void displayProducts(ArrayList<Product> inventory,
                                        ArrayList<Product> cart,
                                        Scanner scanner) {
-        // TODO: show each product (id, name, price),
-        //       prompt for an id, find that product, add to cart
 
         for (Product product : inventory) {
             System.out.println(product.getSKU() + " " + product.getPrice() + " " + product.getProductName());
@@ -121,11 +116,10 @@ public class Store {
      */
     public static void displayCart(ArrayList<Product> cart, Scanner scanner) {
         System.out.println();
-        // TODO:
-        //   • list each product in the cart
-        //   • compute the total cost
-        //   • ask the user whether to check out (C) or return (X)
-        //   • if C, call checkOut(cart, totalAmount, scanner)
+
+        //   • use for each loop to list each product in the cart
+        //   • use total payment to compute the total cost
+        //   • use scanner ask the user whether to check out (C) or return (X)
 
         for (Product product : cart) {
             System.out.println(product.getSKU() + " " + product.getPrice() + " " + product.getProductName());
@@ -178,6 +172,7 @@ public class Store {
      */
     public static Product findProductById(String id, ArrayList<Product> inventory) {
         // TODO: loop over the list and compare ids
+
         return null;
     }
 }
