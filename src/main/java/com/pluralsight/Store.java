@@ -125,6 +125,13 @@ public class Store {
         //   • compute the total cost
         //   • ask the user whether to check out (C) or return (X)
         //   • if C, call checkOut(cart, totalAmount, scanner)
+
+        for (Product product : cart) {
+            System.out.println(product.getSKU() + " " + product.getPrice() + " " + product.getProductName());
+
+
+
+        }
     }
 
     /**
