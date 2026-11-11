@@ -120,6 +120,7 @@ public class Store {
      * and offers the option to check out.
      */
     public static void displayCart(ArrayList<Product> cart, Scanner scanner) {
+        System.out.println();
         // TODO:
         //   • list each product in the cart
         //   • compute the total cost
@@ -136,7 +137,7 @@ public class Store {
         String choice = scanner.nextLine();
 
         if( choice.equalsIgnoreCase("C")){
-            System.out.println();
+            checkOut(cart, totalAmount, scanner);
 
         } else if(choice.equalsIgnoreCase("X")){
             return;
@@ -149,8 +150,6 @@ public class Store {
             }
             return total;
         }
-
-
     /**
      * Handles the checkout process:
      * 1. Confirm that the user wants to buy.
@@ -162,6 +161,14 @@ public class Store {
                                 double totalAmount,
                                 Scanner scanner) {
         // TODO: implement steps listed above
+        System.out.println("Total: " + totalAmount);
+        System.out.println("Enter payment amount: ");
+        double payment = Double.parseDouble(scanner.nextLine());
+        double change = payment - totalAmount;
+        System.out.println("Your payment is: " + payment);
+        System.out.println("your change is: " + change);
+        System.out.println("Thank you for shopping with us!");
+        cart.clear();
     }
 
     /**
