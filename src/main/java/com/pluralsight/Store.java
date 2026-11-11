@@ -132,6 +132,15 @@ public class Store {
         }
         double totalAmount = totalPayment(cart);
         System.out.println("Your total is: " + totalAmount);
+        System.out.println("Choose C to check out or X to return");
+        String choice = scanner.nextLine();
+
+        if( choice.equalsIgnoreCase("C")){
+            System.out.println();
+
+        } else if(choice.equalsIgnoreCase("X")){
+            return;
+        }
     }
         public static double totalPayment(ArrayList<Product>cart){
             double total = 0;
