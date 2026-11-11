@@ -171,7 +171,12 @@ public class Store {
      * @return the matching Product, or null if not found
      */
     public static Product findProductById(String id, ArrayList<Product> inventory) {
-        // TODO: loop over the list and compare ids
+        for (Product product : inventory) {
+            if(product.getSKU().equals(id)){
+                return product;
+            }
+
+        }
 
         return null;
     }
