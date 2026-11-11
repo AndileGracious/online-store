@@ -129,10 +129,18 @@ public class Store {
         for (Product product : cart) {
             System.out.println(product.getSKU() + " " + product.getPrice() + " " + product.getProductName());
 
-
-
         }
+        double totalAmount = totalPayment(cart);
+        System.out.println("Your total is: " + totalAmount);
     }
+        public static double totalPayment(ArrayList<Product>cart){
+            double total = 0;
+            for (Product product : cart) {
+                total += product.getPrice();
+            }
+            return total;
+        }
+
 
     /**
      * Handles the checkout process:
